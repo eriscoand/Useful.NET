@@ -10,7 +10,18 @@ HTTP Basic authentication (BA) implementation is the simplest technique for enfo
 
 - How to use it? 
 
-Import the class into your project and import the namespace "Helper" in your Controller. Then add [BasicAuthenticationAttribute] before your function.
+1. Import the class into your project 
+2. Add these lines on your Web.config:
+
+```xml
+  <appSettings>    
+    <add key="api_username" value="your-username"/>
+    <add key="api_password" value="your-password"/>
+    ...    
+  </appSettings>
+```
+
+3. Add [BasicAuthenticationAttribute] before your function.
 
 ```c#
 [BasicAuthenticationAttribute]
@@ -19,7 +30,46 @@ public JsonResult Ping()
 {
     return Json(new { IsSuccess = true }, JsonRequestBehavior.AllowGet);
 }
+```
 
+##ReCaptchaClass.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to use Google Recaptcha in your application. 
+
+[+info Recaptcha](https://www.google.com/recaptcha/intro/index.html)
+
+- How to use it? 
+
+1. Import the class into your project 
+2. Add these lines on your Web.config:
+
+```xml
+  <appSettings>    
+    <add key="recaptcha_privatekey" value="your-privatekey"/>
+    <add key="recaptcha_publickey" value="your-publickey"/>
+    ...    
+  </appSettings>
+```
+3. Add these lines on your Controller function
+
+```c#
+[HttpPost]
+public ActionResult Dummy(FormCollection form)
+    string EncodedResponse = Request.Form["g-Recaptcha-Response"];
+    bool IsCaptchaValid = (ReCaptchaClass.Validate(EncodedResponse) == "True" ? true : false);
+
+    if (IsCaptchaValid)
+    {
+        //Recaptcha is valid
+    }
+}
+```
+4. Add these line in your view
+
+```html
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<div class="g-recaptcha" data-sitekey="@WebConfigurationManager.AppSettings["recaptcha_publickey"]"></div>
+```
 
 ## Licenses
 
