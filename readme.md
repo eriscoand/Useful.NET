@@ -8,10 +8,10 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need Ba
 
 HTTP Basic authentication (BA) implementation is the simplest technique for enforcing access controls to web resources because it doesn't require cookies, session identifiers, or login pages; rather, HTTP Basic authentication uses standard fields in the HTTP header, obviating the need for handshakes. [+info](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
-- How to use it? 
+###How to use it? 
 
-1. Import the class into your project 
-2. Add these lines on your Web.config:
+- Import the class into your project 
+- Add these lines on your Web.config:
 
 ```xml
   <appSettings>    
@@ -21,7 +21,7 @@ HTTP Basic authentication (BA) implementation is the simplest technique for enfo
   </appSettings>
 ```
 
-3. Add [BasicAuthenticationAttribute] before your function.
+- Add [BasicAuthenticationAttribute] before your function.
 
 ```c#
 [BasicAuthenticationAttribute]
@@ -38,10 +38,10 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need to
 
 [+info Recaptcha](https://www.google.com/recaptcha/intro/index.html)
 
-- How to use it? 
+###How to use it? 
 
-1. Import the class into your project 
-2. Add these lines on your Web.config:
+- Import the class into your project 
+- Add these lines on your Web.config:
 
 ```xml
   <appSettings>    
@@ -50,7 +50,8 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need to
     ...    
   </appSettings>
 ```
-3. Add these lines on your Controller function
+
+- Add these lines on your Controller function
 
 ```c#
 [HttpPost]
@@ -64,7 +65,8 @@ public ActionResult Dummy(FormCollection form)
     }
 }
 ```
-4. Add these line in your view
+
+- Add these line in your view
 
 ```html
 <script src='https://www.google.com/recaptcha/api.js'></script>
