@@ -68,7 +68,7 @@ public ActionResult Dummy(FormCollection form)
 
 ```html
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<div class="g-recaptcha" data-sitekey="@WebConfigurationManager.AppSettings["recaptcha_publickey"]"></div>
+<div class="g-recaptcha" data-sitekey="@System.Web.Configuration.WebConfigurationManager.AppSettings['recaptcha_publickey']"></div>
 ```
 
 ## Licenses
