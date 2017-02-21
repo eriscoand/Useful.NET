@@ -32,6 +32,55 @@ public JsonResult Ping()
 }
 ```
 
+##Email.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to send simple emails and you have your own SMTP server
+
+You will also need the Log.cs class to use this class!
+
+###How to use it? 
+
+- Import the class into your project 
+- Add these lines on your Web.config:
+
+```xml
+  <appSettings>    
+    <add key="email_from" value="your@email.com"/>
+    <add key="email_name" value="YOUR-NAME"/>
+    <add key="smtp_host" value="smtp.host.com"/>
+    <add key="smtp_user" value="user@host.com"/>
+    <add key="smtp_password" value="your-password"/>
+    ...    
+  </appSettings>
+```
+
+- Use it like this:
+
+```c#
+Email.SimpleEmail("FATAL ERROR", "Kill all humans", "your@email.com");
+```
+
+##Log.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to store in a txt LOG simple messages.
+
+###How to use it? 
+
+- Import the class into your project 
+- Add these lines on your Web.config:
+- Use it like this:
+
+```c#
+try
+{
+    //STUFF
+}
+catch (Exception ex)
+{
+    Log.SimpleLog(ex.Message.ToString());
+}
+```
+
 ##ReCaptchaClass.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to use Google Recaptcha in your application. 
