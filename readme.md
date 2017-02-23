@@ -150,8 +150,8 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need to
 
 ```c#
 //Friendly url
-var friendly = CleanStrings.friendlyURL(new.title)
-var nodiac = CleanStrings.RemoveAccent(new.title)
+var friendly = CleanStrings.friendlyURL(new.title);
+var nodiac = CleanStrings.RemoveAccent(new.title);
 ```
 
 ## Licenses
