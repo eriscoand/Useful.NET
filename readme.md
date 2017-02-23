@@ -67,7 +67,6 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need to
 ###How to use it? 
 
 - Import the class into your project 
-- Add these lines on your Web.config:
 - Use it like this:
 
 ```c#
@@ -120,6 +119,39 @@ public ActionResult Dummy(FormCollection form)
 ```html
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="g-recaptcha" data-sitekey="@System.Web.Configuration.WebConfigurationManager.AppSettings['recaptcha_publickey']"></div>
+```
+##Validator.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create a string from a DbEntityValidationException.
+
+###How to use it? 
+
+- Import the class into your project 
+- Use it like this:
+
+```c#
+try
+{
+    //STUFF
+}
+catch (DbEntityValidationException e)
+{
+    return Validator.ToString(e);
+}
+```
+##CleanStrings.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to remove diacritics from a string or you need to create a string as a friendly url from any string.
+
+###How to use it? 
+
+- Import the class into your project 
+- Use it like this:
+
+```c#
+//Friendly url
+var friendly = CleanStrings.friendlyURL(new.title)
+var nodiac = CleanStrings.RemoveAccent(new.title)
 ```
 
 ## Licenses
