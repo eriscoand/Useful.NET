@@ -9,8 +9,8 @@ using System.Web.Configuration;
 
 static class Email
 {
-    
-     public static void SimpleEmail(string subject, string message, string receiver)
+
+    public static void Send(string subject, string message, string receiver, string copyTo = "", string replyTo = "", string attachment_path = "")
      {
             message = "<html><body>" + message + "</body></html>";
 
@@ -26,6 +26,31 @@ static class Email
             mail.From = mailAddress;
             mail.Subject = subject;
             mail.Body = message;
+
+            if (!String.IsNullOrWhiteSpace(copyTo))
+            {
+                mail.CC.Add(copyTo);
+            }
+
+            if (!String.IsNullOrWhiteSpace(replyTo))
+            {
+                mail.ReplyToList.Add(replyTo);
+            }
+
+            if (!String.IsNullOrWhiteSpace(attachment_path))
+            {
+                // Create  the file attachment for this e-mail message.
+                Attachment data = new Attachment(attachment_path, MediaTypeNames.Application.Octet);
+                // Add time stamp information for the file.
+                ContentDisposition disposition = data.ContentDisposition;
+                disposition.CreationDate = System.IO.File.GetCreationTime(attachment_path);
+                disposition.ModificationDate = System.IO.File.GetLastWriteTime(attachment_path);
+                disposition.ReadDate = System.IO.File.GetLastAccessTime(attachment_path);
+                disposition.DispositionType = DispositionTypeNames.Attachment;
+                // Add the file attachment to this e-mail message.
+                mail.Attachments.Add(data);
+            }
+
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.Normal;
 
@@ -45,4 +70,7 @@ static class Email
             }
 
         }
+
+
+
 }

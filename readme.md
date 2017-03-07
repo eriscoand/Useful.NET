@@ -34,7 +34,9 @@ public JsonResult Ping()
 
 ##Email.cs
 
-Class made with C# and useful for a MVC .NET C# Project. Use it when you need to send simple emails and you have your own SMTP server
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to send emails and you have your own SMTP server
+
+Send to an email with cc and replyTo. Add attachment from a URL.
 
 You will also need the Log.cs class to use this class!
 
@@ -57,7 +59,7 @@ You will also need the Log.cs class to use this class!
 - Use it like this:
 
 ```c#
-Email.SimpleEmail("FATAL ERROR", "Kill all humans", "your@email.com");
+Email.Send("FATAL ERROR", "Kill all humans", "your@email.com", "cc@email.com", "reply@email.com", "http://www.bacon.com/bacon.jpg");
 ```
 
 ##Log.cs
