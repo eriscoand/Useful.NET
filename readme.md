@@ -2,6 +2,48 @@
 
 This is a small repository where I will upload pieces of code useful for me and my daily work.
 
+##ExchangeAppointment.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create appointments to Microsoft Exchange.
+
+Using **Microsoft.Exchange.WebServices.Data**, you must import this Library to your project; 
+
+###How to use it? 
+
+- Import the class into your project
+- Add this line on your Web.config. This is the IP of your Exchange server.
+
+```xml
+  <appSettings>    
+    <add key="MSExchange_URL" value="https://yourserver.com/EWS/Exchange.asmx" />
+    ...    
+  </appSettings>
+```
+
+- You will also need the Log.cs class to use this class! (or just delete the Log line :) )
+- Use it like this:
+
+```c#
+    //Get appointment list
+    DateTime start = DateTime.Now.AddDays(1);
+    DateTime end = DateTime.Now.AddDays(2);
+    var appointmentList = ExchangeAppointment.getAppointments("username", "password", start, end);
+    
+    //Creating Appointment
+    var subject = "Destroy humans";
+    var body = "Destroy humans reminder";
+    var location = "World";
+
+    var mskeys = ExchangeAppointment.addAppointment("username", "password", subject, body, location, start, end, true);
+
+    //Deleting Appointment
+    var appointmentDeleted = ExchangeAppointment.deleteAppointment("username", "password", mskeys.mse_key);
+    if (appointmentDeleted)
+    {
+        //STUFF
+    }
+```
+
 ##BasicAuthentication.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need Basic Authentication in your application. 
