@@ -16,7 +16,7 @@ public static class CleanStrings
 
     public static string toUpperWithoutSpaces(string s)
     {
-        string str = RemoveAccent(s).ToLower();
+        string str = RemoveAccent(s).ToUpper();
         str = System.Text.RegularExpressions.Regex.Replace(str, @"[^a-z0-9\s-]", ""); // Remove all non valid chars          
         str = System.Text.RegularExpressions.Regex.Replace(str, @"\s+", "").Trim(); // convert multiple spaces into zero space  
         return str;
