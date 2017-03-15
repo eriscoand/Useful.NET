@@ -1,14 +1,14 @@
-#Useful classes
+# Useful classes
 
 This is a small repository where I will upload pieces of code useful for me and my daily work.
 
-##ExchangeAppointment.cs
+## ExchangeAppointment.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create appointments to Microsoft Exchange.
 
 Using **Microsoft.Exchange.WebServices.Data**, you must import this Library to your project; 
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project
 - Add this line on your Web.config. This is the IP of your Exchange server.
@@ -44,13 +44,13 @@ Using **Microsoft.Exchange.WebServices.Data**, you must import this Library to y
     }
 ```
 
-##BasicAuthentication.cs
+## BasicAuthentication.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need Basic Authentication in your application. 
 
 HTTP Basic authentication (BA) implementation is the simplest technique for enforcing access controls to web resources because it doesn't require cookies, session identifiers, or login pages; rather, HTTP Basic authentication uses standard fields in the HTTP header, obviating the need for handshakes. [+info](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Add these lines on your Web.config:
@@ -74,7 +74,7 @@ public JsonResult Ping()
 }
 ```
 
-##Email.cs
+## Email.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to send emails and you have your own SMTP server
 
@@ -82,7 +82,7 @@ Send to an email with cc and replyTo. Add attachment from a URL.
 
 You will also need the Log.cs class to use this class!
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Add these lines on your Web.config:
@@ -104,11 +104,11 @@ You will also need the Log.cs class to use this class!
 Email.Send("FATAL ERROR", "Kill all humans", "your@email.com", "cc@email.com", "reply@email.com", "http://www.bacon.com/bacon.jpg");
 ```
 
-##Log.cs
+## Log.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to store in a txt LOG simple messages.
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Use it like this:
@@ -124,13 +124,13 @@ catch (Exception ex)
 }
 ```
 
-##ReCaptchaClass.cs
+## ReCaptchaClass.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to use Google Recaptcha in your application. 
 
 [+info Recaptcha](https://www.google.com/recaptcha/intro/index.html)
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Add these lines on your Web.config:
@@ -164,11 +164,11 @@ public ActionResult Dummy(FormCollection form)
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <div class="g-recaptcha" data-sitekey="@System.Web.Configuration.WebConfigurationManager.AppSettings['recaptcha_publickey']"></div>
 ```
-##Validator.cs
+## Validator.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create a string from a DbEntityValidationException.
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Use it like this:
@@ -183,11 +183,11 @@ catch (DbEntityValidationException e)
     return Validator.ToString(e);
 }
 ```
-##CleanStrings.cs
+## CleanStrings.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to remove diacritics from a string or you need to create a string as a friendly url from any string.
 
-###How to use it? 
+### How to use it? 
 
 - Import the class into your project 
 - Use it like this:
@@ -202,7 +202,7 @@ var nodiac = CleanStrings.RemoveAccent(new.title);
 
 Distributed under the [MIT](http://en.wikipedia.org/wiki/MIT_License)
 
-###MIT - Licence
+### MIT - Licence
 
 Copyright (c) 2017 Eric Risco de la Torre
 
