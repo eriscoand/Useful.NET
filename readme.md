@@ -124,6 +124,48 @@ catch (Exception ex)
 }
 ```
 
+## AuthCookie.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create a cookie to store the session username.
+
+### How to use it? 
+
+- Import the class into your project 
+- Use it like this: (I'm using Entities, the class is "admin")
+
+```c#
+public admin login(string email, string password)
+{
+    using (var db = Entities.getContext())
+    {
+        string hash = PasswordGenerator.sha1(password);
+        var admin = db.admin.Where(x => x.email == email && x.password == hash && x.habilitado == 1).FirstOrDefault();
+        if (admin != null)
+        {
+            AuthCookie.create(admin.username);
+            return admin;
+        }
+        return null;
+    }
+}
+
+public void Logout()
+{
+    AuthCookie.destroy();
+}
+
+public int getUserIdFromSession()
+{
+    using (var db = Entities.getContext())
+    {
+        var temp = db.admin.Where(x => x.username == AuthCookie.get()).FirstOrDefault();
+        if (temp != null) return temp.id;
+    }
+
+    return 0;
+}
+```
+
 ## ReCaptchaClass.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to use Google Recaptcha in your application. 
