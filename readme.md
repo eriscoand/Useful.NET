@@ -198,6 +198,20 @@ var friendly = CleanStrings.friendlyURL(new.title);
 var nodiac = CleanStrings.RemoveAccent(new.title);
 ```
 
+## PasswordGenerator.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to generate a SHA1 or MD5 before saving it to the database. For example a Password.
+
+### How to use it? 
+
+- Import the class into your project 
+- Use it like this:
+
+```c#
+string sha1 = PasswordGenerator.sha1(password);
+string md5 = PasswordGenerator.sha1(password);
+```
+
 ## Licenses
 
 Distributed under the [MIT](http://en.wikipedia.org/wiki/MIT_License)
