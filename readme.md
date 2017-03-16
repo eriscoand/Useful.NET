@@ -209,7 +209,7 @@ Class made with C# and useful for a MVC .NET C# Project. Use it when you need to
 
 ```c#
 string sha1 = PasswordGenerator.sha1(password);
-string md5 = PasswordGenerator.sha1(password);
+string md5 = PasswordGenerator.md5(password);
 ```
 
 ## Licenses
