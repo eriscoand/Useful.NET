@@ -6,6 +6,18 @@ using System.Text;
 
 class PasswordGenerator
 {
+    public static string randomPassword(int length = 8)
+    {
+        const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder res = new StringBuilder();
+        Random rnd = new Random();
+        while (0 < length--)
+        {
+            res.Append(valid[rnd.Next(valid.Length)]);
+        }
+        return res.ToString();
+    }
+
     public static string sha1(string data)
     {
         SHA1 sha1 = SHA1Managed.Create();

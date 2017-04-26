@@ -2,6 +2,31 @@
 
 This is a small repository where I will upload pieces of code useful for me and my daily work.
 
+## Context 
+
+In this folder you will find three classes. Return is a class for a return statement. Validator is for creating an string from a DbEntityValidationException. And Context is for SaveChanges from a context.
+
+```c#
+	public Return saveRegister(register register)
+	{
+		using (var db = Entities.getContext())
+		{
+
+			var register_db = db.register.Where(x => x.id == register.id).FirstOrDefault();
+
+			if (tipo_db == null)
+			{
+				tipo_db = new tipo();
+			}
+
+			tipo_db.nombre = tipo.nombre;
+
+			return Entities.saveAndReturn(db);
+
+		}
+	}
+```
+
 ## ExchangeAppointment.cs
 
 Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create appointments to Microsoft Exchange.
@@ -42,6 +67,15 @@ Using **Microsoft.Exchange.WebServices.Data**, you must import this Library to y
     {
         //STUFF
     }
+```
+
+## FileSaving
+
+Get all the files from a folder (getFiles), save a file to a folder (saveFile), save&crop an image to a folder (uploadAndCrop), delete a file (deleteFile) or get the size of a file:
+
+```c#
+	FileSaving.deleteFile("/folder/image.png");
+	FileSaving.uploadAndCrop(image, "folder", imageCrop);
 ```
 
 ## BasicAuthentication.cs
