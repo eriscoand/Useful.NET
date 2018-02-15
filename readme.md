@@ -288,6 +288,24 @@ string sha1 = PasswordGenerator.sha1(password);
 string md5 = PasswordGenerator.md5(password);
 ```
 
+## Watermark.cs
+
+Class made with C# and useful for a MVC .NET C# Project. Use it when you need to create images with watermark on the fly. 
+
+### How to use it? 
+
+- Import the class into your project 
+- Use it like this:
+
+```c#
+using (Image img = Image.FromFile(filename))
+using(var ms = new MemoryStream())
+{
+	img.Save(ms, img.RawFormat);
+	byte[] imageWatermark = Watermark.apply(ms.ToArray());
+}            
+```
+
 ## Licenses
 
 Distributed under the [MIT](http://en.wikipedia.org/wiki/MIT_License)
